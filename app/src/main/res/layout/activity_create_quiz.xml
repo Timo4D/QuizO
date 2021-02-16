@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    tools:context=".CreateQuizActivity">
+
+    <TextView
+        android:id="@+id/tv_createQuizQuizName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        tools:text="QuizName"/>
+
+    <TextView
+        android:id="@+id/tv_questionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QuestionNr"/>
+
+    <EditText
+        android:id="@+id/et_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Question" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="?android:attr/listDivider"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+    <EditText
+        android:id="@+id/et_option1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Answer 1"/>
+
+    <EditText
+        android:id="@+id/et_option2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Answer 2"/>
+
+    <EditText
+        android:id="@+id/et_option3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Answer 3"/>
+
+    <EditText
+        android:id="@+id/et_option4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Answer 4"/>
+
+    <EditText
+        android:id="@+id/et_correctAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Correct answer number"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btn_nextQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add next question"/>
+
+    <Button
+        android:id="@+id/btn_doneWithQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"/>
+
+
+
+</LinearLayout>
