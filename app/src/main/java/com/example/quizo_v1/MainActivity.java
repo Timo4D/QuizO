@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
-
         setUpTestQuiz();
 
         btn_start.setOnClickListener(new View.OnClickListener() {
