@@ -13,6 +13,7 @@ public class ResultActivity extends AppCompatActivity {
     private TextView tv_name;
     private TextView tv_score;
     private Button btn_finish;
+    private TextView tv_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +22,14 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        tv_time = findViewById(R.id.tv_time);
         tv_name = findViewById(R.id.tv_name);
         tv_score = findViewById(R.id.tv_score);
         btn_finish  = findViewById(R.id.btn_finish);
 
         tv_name.setText(Constants.getUserName());
         tv_score.setText("Your score is "+intent.getIntExtra(Constants.correct_answers,0)+" out of "+intent.getIntExtra(Constants.total_questions,0)+"!");
+        tv_time.setText("You needed "+ intent.getStringExtra(Constants.TIMER)+" for this quit!");
 
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override

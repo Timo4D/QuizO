@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +24,12 @@ public class QuizAnswerActivity extends AppCompatActivity {
     private int quizNumber;
     private int selectedPosition = 0;
     private Boolean questionAnwered = false;
+    private Boolean timerIsRunning = false;
+    private long pauseOffset;
 
     private int correctAnswers = 0;
 
+    private Chronometer chronometer;
     private TextView tv_question;
     private TextView tv_option1;
     private TextView tv_option2;
@@ -54,7 +59,10 @@ public class QuizAnswerActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         tv_progress = findViewById(R.id.tv_progress);
         btn_submit = findViewById(R.id.btn_submit);
+        chronometer = findViewById(R.id.chronometer);
         setQuestion();
+
+        startChronometer();
 
         tv_option1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,11 +110,15 @@ public class QuizAnswerActivity extends AppCompatActivity {
                         setQuestion();
                         questionAnwered = false;
                     } else {
+                        pauseChronometer();
                         Intent i = new Intent(QuizAnswerActivity.this,ResultActivity.class);
+                        i.putExtra(Constants.TIMER,chronometer.getText().toString());
                         i.putExtra(Constants.correct_answers,correctAnswers);
                         i.putExtra(Constants.total_questions,questionArrayList.size());
                         i.putExtra(Constants.QUIZ_NUMBER,quizNumber);
+                        resetChronometer();
                         startActivity(i);
+                        finish();
                     }
                 } else {
                     Question question = (Question) questionArrayList.get(currentPosition-1);
@@ -130,6 +142,28 @@ public class QuizAnswerActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void resetChronometer() {
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        pauseOffset = 0;
+    }
+
+    private void pauseChronometer() {
+        if(timerIsRunning) {
+            chronometer.stop();
+            pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+            timerIsRunning = false;
+        }
+    }
+
+    private void startChronometer() {
+        if(!timerIsRunning) {
+            chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+            chronometer.start();
+            timerIsRunning = true;
+        }
+    }
+
 
     private void setQuestion() {
         Question question = (Question) questionArrayList.get(currentPosition-1);

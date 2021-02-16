@@ -49,10 +49,19 @@
         android:textSize="20sp"
         tools:text="Your Score is 9 out of 10"/>
 
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        tools:text="you needed:"/>
+
     <Button
         android:id="@+id/btn_finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="finish"
         android:textSize="18sp"
         android:textStyle="bold"/>

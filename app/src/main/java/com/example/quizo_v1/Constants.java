@@ -9,6 +9,7 @@ public class Constants {
     public static final String total_questions = "total_questions";
     public static final String correct_answers ="correct_answers";
     public static final String QUIZ_NAME = "quiz_name";
+    public static final String TIMER = "timer";
 
     private static ArrayList<Quiz> quizArrayList = new ArrayList<Quiz>();
     private static String userName;

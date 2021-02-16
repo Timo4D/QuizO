@@ -24,6 +24,11 @@
             android:textSize="22sp"
             android:text="What country does this flag belong to?"/>
 
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:id="@+id/ll_progress_details"
             android:layout_width="match_parent"
