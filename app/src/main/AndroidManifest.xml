@@ -3,6 +3,7 @@
     package="com.example.quizo_v1">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,12 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizO_V1">
+        <activity android:name=".MainSettingsActivity"></activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7005689583364869~2743112013"/>
+            android:value="ca-app-pub-7005689583364869~2743112013" />
+
         <activity
             android:name=".CreateQuizActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".QuizCreateNameActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".QuizAnswerActivity" />

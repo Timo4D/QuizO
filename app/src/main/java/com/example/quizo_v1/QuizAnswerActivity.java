@@ -60,6 +60,11 @@ public class QuizAnswerActivity extends AppCompatActivity {
         tv_progress = findViewById(R.id.tv_progress);
         btn_submit = findViewById(R.id.btn_submit);
         chronometer = findViewById(R.id.chronometer);
+
+        if(!Constants.getSettings().isUseTimer()) {
+            chronometer.setVisibility(View.GONE);
+        }
+
         setQuestion();
 
         startChronometer();

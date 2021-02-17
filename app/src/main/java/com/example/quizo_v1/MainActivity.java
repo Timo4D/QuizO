@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Please enter your name",Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this,QuizListActivity.class);
-                    intent.putExtra(Constants.user_name,et_name.getText().toString());
+                    Constants.getSettings().setUserName(et_name.getText().toString());
                     startActivity(intent);
                     finish();
                 }

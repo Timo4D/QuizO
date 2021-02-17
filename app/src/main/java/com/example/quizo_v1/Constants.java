@@ -12,7 +12,8 @@ public class Constants {
     public static final String TIMER = "timer";
 
     private static ArrayList<Quiz> quizArrayList = new ArrayList<Quiz>();
-    private static String userName;
+
+    private static MainSettings settings = new MainSettings(true);
 
     public static void setQuizArrayList(ArrayList<Quiz> quizArrayList) {
         Constants.quizArrayList = quizArrayList;
@@ -30,11 +31,11 @@ public class Constants {
         return quizArrayList.get(i);
     }
 
-    public static String getUserName() {
-        return userName;
+    public static MainSettings getSettings() {
+        return settings;
     }
 
-    public static void setUserName(String userName) {
-        Constants.userName = userName;
+    public static void setSettings(MainSettings settings) {
+        Constants.settings = settings;
     }
 }

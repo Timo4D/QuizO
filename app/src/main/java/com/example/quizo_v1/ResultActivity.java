@@ -20,6 +20,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+
         Intent intent = getIntent();
 
         tv_time = findViewById(R.id.tv_time);
@@ -27,9 +28,13 @@ public class ResultActivity extends AppCompatActivity {
         tv_score = findViewById(R.id.tv_score);
         btn_finish  = findViewById(R.id.btn_finish);
 
-        tv_name.setText(Constants.getUserName());
+        tv_name.setText(Constants.getSettings().getUserName());
         tv_score.setText("Your score is "+intent.getIntExtra(Constants.correct_answers,0)+" out of "+intent.getIntExtra(Constants.total_questions,0)+"!");
         tv_time.setText("You needed "+ intent.getStringExtra(Constants.TIMER)+" for this quit!");
+
+        if(!Constants.getSettings().isUseTimer()) {
+            tv_time.setVisibility(View.GONE);
+        }
 
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override

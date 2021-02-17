@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class QuizListActivity extends AppCompatActivity {
 
     private Button btn_addQuiz;
+    private Button btn_settings;
     private ListView lv_QuizList;
     private ArrayList<Quiz> quizArrayList;
     private ArrayList<String> quizNameArrayList;
@@ -32,7 +33,7 @@ public class QuizListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_list);
 
-
+        btn_settings = findViewById(R.id.btn_settings);
         btn_addQuiz = findViewById(R.id.btn_AddQuiz);
         lv_QuizList = findViewById(R.id.lv_QuizList);
         quizArrayList = Constants.getQuizArrayList();
@@ -41,6 +42,14 @@ public class QuizListActivity extends AppCompatActivity {
         quizArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,quizNameArrayList);
         lv_QuizList.setAdapter(quizArrayAdapter);
         setUpListViewListener();
+
+        btn_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuizListActivity.this, MainSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
