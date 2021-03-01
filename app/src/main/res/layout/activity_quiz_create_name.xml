@@ -16,10 +16,33 @@
         android:gravity="center"
         android:hint="Quiz Name"/>
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_forceTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Force Timer on"/>
+
+    <EditText
+        android:id="@+id/et_maxQuizTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Max time for Quiz"/>
+
+    <TextView
+        android:id="@+id/tv_maxQuizTimeHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="Leave empty for unlimited time"/>
+
+
     <Button
         android:id="@+id/btn_createNewQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
         android:text="Create Quiz"/>
 
     <Button

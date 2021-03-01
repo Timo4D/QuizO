@@ -26,6 +26,8 @@ public class QuizAnswerActivity extends AppCompatActivity {
     private Boolean questionAnwered = false;
     private Boolean timerIsRunning = false;
     private long pauseOffset;
+    private Quiz quiz;
+    private Boolean useTimer = false;
 
     private int correctAnswers = 0;
 
@@ -44,6 +46,7 @@ public class QuizAnswerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_answer);
 
+
         Intent intent = getIntent();
         quizNumber = intent.getIntExtra(Constants.QUIZ_NUMBER,0);
 
@@ -61,8 +64,16 @@ public class QuizAnswerActivity extends AppCompatActivity {
         btn_submit = findViewById(R.id.btn_submit);
         chronometer = findViewById(R.id.chronometer);
 
-        if(!Constants.getSettings().isUseTimer()) {
-            chronometer.setVisibility(View.GONE);
+        quiz = Constants.getQuiz(quizNumber);
+
+        chronometer.setVisibility(View.GONE);
+
+        if(Constants.getSettings().isUseTimer()) {
+            chronometer.setVisibility(View.VISIBLE);
+            useTimer = true;
+        } else if(quiz.isForceTimerOn()) {
+            chronometer.setVisibility(View.VISIBLE);
+            useTimer = true;
         }
 
         setQuestion();
@@ -72,6 +83,7 @@ public class QuizAnswerActivity extends AppCompatActivity {
         tv_option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                chronometer.setVisibility(View.VISIBLE);
                 if(questionAnwered==false) {
                     selectedOptionView(tv_option1,1);
                 }
@@ -121,6 +133,7 @@ public class QuizAnswerActivity extends AppCompatActivity {
                         i.putExtra(Constants.correct_answers,correctAnswers);
                         i.putExtra(Constants.total_questions,questionArrayList.size());
                         i.putExtra(Constants.QUIZ_NUMBER,quizNumber);
+                        i.putExtra(Constants.USE_TIMER,useTimer);
                         resetChronometer();
                         startActivity(i);
                         finish();

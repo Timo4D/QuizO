@@ -14,6 +14,7 @@ public class ResultActivity extends AppCompatActivity {
     private TextView tv_score;
     private Button btn_finish;
     private TextView tv_time;
+    private Boolean useTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class ResultActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
+        useTimer = intent.getBooleanExtra(Constants.USE_TIMER,false);
 
         tv_time = findViewById(R.id.tv_time);
         tv_name = findViewById(R.id.tv_name);
@@ -32,8 +34,10 @@ public class ResultActivity extends AppCompatActivity {
         tv_score.setText("Your score is "+intent.getIntExtra(Constants.correct_answers,0)+" out of "+intent.getIntExtra(Constants.total_questions,0)+"!");
         tv_time.setText("You needed "+ intent.getStringExtra(Constants.TIMER)+" for this quit!");
 
-        if(!Constants.getSettings().isUseTimer()) {
-            tv_time.setVisibility(View.GONE);
+        tv_time.setVisibility(View.GONE);
+
+        if(useTimer) {
+            tv_time.setVisibility(View.VISIBLE);
         }
 
         btn_finish.setOnClickListener(new View.OnClickListener() {
