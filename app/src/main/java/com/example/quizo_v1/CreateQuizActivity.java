@@ -17,7 +17,6 @@ public class CreateQuizActivity extends AppCompatActivity {
     private Quiz quiz;
     private int correctAnswer;
     private boolean forceTimer;
-    private int maxTime;
 
     private TextView tv_quizName;
     private TextView tv_questionNr;
@@ -38,7 +37,6 @@ public class CreateQuizActivity extends AppCompatActivity {
         Intent intent = getIntent();
         quizName = intent.getStringExtra(Constants.QUIZ_NAME);
         forceTimer = intent.getBooleanExtra(Constants.FORCE_TIMER,false);
-        maxTime = intent.getIntExtra(Constants.MAX_TIME,0);
 
         tv_quizName = findViewById(R.id.tv_createQuizQuizName);
         tv_questionNr = findViewById(R.id.tv_questionNumber);
@@ -58,9 +56,6 @@ public class CreateQuizActivity extends AppCompatActivity {
         quiz = new Quiz(quizName);
         quiz.setForceTimerOn(forceTimer);
 
-        if(forceTimer) {
-            quiz.setMaxTime(maxTime);
-        }
 
         btn_addNextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override

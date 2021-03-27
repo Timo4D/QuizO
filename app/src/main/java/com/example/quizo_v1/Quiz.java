@@ -6,7 +6,6 @@ public class Quiz {
 
     private String quizName;
     private boolean forceTimerOn;
-    private int maxTime;
     private ArrayList<Question> questionsList = new ArrayList<Question>();
 
     public Quiz (String QuizName) {
@@ -40,14 +39,6 @@ public class Quiz {
 
     public ArrayList<Question> getQuestionsListArray() {
         return this.questionsList;
-    }
-
-    public int getMaxTime() {
-        return maxTime;
-    }
-
-    public void setMaxTime(int maxTime) {
-        this.maxTime = maxTime;
     }
 
     public void setForceTimerOn(boolean forceTimerOn) {
