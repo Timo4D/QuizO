@@ -54,11 +54,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpTestQuiz() {
 
-        Quiz quiz = new Quiz("Test");
-        Question que1 = new Question(1,"What ist 1+1","obstsalat","kartoffelsalat","2", "hobbylos",3);
-        Question que2 = new Question(2,"Ist das ein Test?","ja","nein","vielleicht","eventuell",3);
+        Quiz quiz = new Quiz("Beispiel Quiz");
+        Question que1 = new Question(1,"Wer wurde 2013 Formel 1 Weltmeister?","Lewis Hamilton","Fernando Alonso","Sebastian Vettel", "Michael Schumacher",3);
+        Question que2 = new Question(2,"Was ist die Hauptstadt von Deutschland?","Bonn","Stuttgart","Muenchen","Berlin",4);
+        Question que3 = new Question(3,"In welchem Jahr hat Dirk Nowitzki die NBA Meisterachaft gewonnen?","2011","2013","2009","2010",1);
+        Question que4 = new Question(4,"Bei welchem Team fährt Sebastian Vettel 2021 in der Formel 1","Mercedes","Aston Martin","Ferrari","Red Bull",2);
+        Question que5 = new Question(5,"Mit welchem Album hat Kendick Lamar ein Pulitzer Preis gewonnen?","To Pimp a Butterfly","Damn","Section.80","good kid, m.A.A.d city",2);
         quiz.addQuestion(que1);
         quiz.addQuestion(que2);
+        quiz.addQuestion(que3);
+        quiz.addQuestion(que4);
+        quiz.addQuestion(que5);
         Constants.addQuiz(quiz);
     }
 }
